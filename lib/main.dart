@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:todo/resources/todo_data.dart';
 import 'package:todo/screens/todo_screen.dart';
 
-void main() {
+void main() async {
   runApp(const MyApp());
 }
 
@@ -13,7 +15,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: 'Quicksand'),
-      home: const TodoScreen(),
+      home: ChangeNotifierProvider(
+          create: ((context) => TodoData()), child: TodoScreen()),
     );
   }
 }
