@@ -16,6 +16,7 @@ class TodoList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
+        physics: const BouncingScrollPhysics(),
         itemBuilder: ((context, index) {
           return ListTile(
             leading: IconButton(
