@@ -26,6 +26,8 @@ class TodoScreen extends StatefulWidget {
     })),
   ];
 
+  const TodoScreen({super.key});
+
   @override
   State<TodoScreen> createState() => _TodoScreenState();
 }
