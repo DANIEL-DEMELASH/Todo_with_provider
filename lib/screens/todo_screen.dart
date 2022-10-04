@@ -44,11 +44,9 @@ class _TodoScreenState extends State<TodoScreen> {
                 context: context,
                 builder: (BuildContext context) => const AddTaskScreen());
           },
-          backgroundColor: kBgColor,
           child: const Icon(Icons.add),
         ),
         appBar: AppBar(
-          backgroundColor: kBgColor,
           title: const Text(
             'To Do List',
             style: kTitleStyle,

@@ -28,7 +28,6 @@ class AddTaskScreen extends StatelessWidget {
                 autofocus: true,
                 controller: taskContoller,
                 textAlign: TextAlign.center,
-                decoration: const InputDecoration(hintText: 'Todo Title'),
                 validator: ((value) {
                   if (value == null || value.isEmpty) {
                     return 'you must enter the task title';
@@ -41,6 +40,8 @@ class AddTaskScreen extends StatelessWidget {
               ),
             ),
             MaterialButton(
+              textColor: Colors.white,
+              color: kBgColor,
               onPressed: () {
                 if (formKey.currentState!.validate()) {
                   Provider.of<TodoData>(context, listen: false)
@@ -49,9 +50,12 @@ class AddTaskScreen extends StatelessWidget {
                   Navigator.pop(context);
                 }
               },
-              child: const Text(
-                'Add Todo',
-                // style: TextStyle(backgroundColor: kBgColor),
+              child: const SizedBox(
+                width: double.infinity,
+                child: Text(
+                  'Add Task',
+                  textAlign: TextAlign.center,
+                ),
               ),
             )
           ],
