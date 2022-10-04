@@ -12,11 +12,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(fontFamily: 'Quicksand'),
-      home: ChangeNotifierProvider(
-          create: ((context) => TodoData()), child: TodoScreen()),
+    return ChangeNotifierProvider(
+      create: (context) => TodoData(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(fontFamily: 'Quicksand'),
+        home: TodoScreen(),
+      ),
     );
   }
 }

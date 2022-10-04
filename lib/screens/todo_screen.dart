@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:provider/provider.dart';
 import 'package:todo/constants.dart';
+import 'package:todo/widgets/add_todo.dart';
 import 'package:todo/widgets/custom_todo_list.dart';
 
 import '../resources/todo_data.dart';
@@ -37,7 +38,9 @@ class _TodoScreenState extends State<TodoScreen> {
     return Scaffold(
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            //TODO: add new task method
+            showModalBottomSheet(
+                context: context,
+                builder: (BuildContext context) => const AddTaskScreen());
           },
           backgroundColor: kBgColor,
           child: const Icon(Icons.add),
@@ -50,13 +53,6 @@ class _TodoScreenState extends State<TodoScreen> {
           ),
           centerTitle: true,
           elevation: 0,
-          actions: [
-            IconButton(
-                onPressed: () {
-                  //TODO: change theme method
-                },
-                icon: const Icon(Icons.sunny))
-          ],
         ),
         bottomNavigationBar: Container(
           decoration: BoxDecoration(color: Colors.white, boxShadow: [
