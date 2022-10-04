@@ -2,13 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:provider/provider.dart';
 import 'package:todo/constants.dart';
-import 'package:todo/resources/todo_data.dart';
+import 'package:todo/widgets/custom_todo_list.dart';
+
+import '../resources/todo_data.dart';
 
 class TodoScreen extends StatefulWidget {
   static final List<Widget> _screens = [
-    placeholderList(),
-    placeholderList3(),
-    placeholderList2(),
+    Consumer<TodoData>(builder: ((context, data, child) {
+      return TodoList(data: data, todos: data.todos);
+    })),
+    Consumer<TodoData>(builder: ((context, data, child) {
+      return TodoList(
+        data: data,
+        todos: data.inCompletedTodos,
+      );
+    })),
+    Consumer<TodoData>(builder: ((context, data, child) {
+      return TodoList(
+        data: data,
+        todos: data.completedTodos,
+      );
+    })),
   ];
 
   @override
@@ -78,103 +92,4 @@ class _TodoScreenState extends State<TodoScreen> {
         ),
         body: TodoScreen._screens[_selectedIndex]);
   }
-}
-
-Widget placeholderList() {
-  return Consumer<TodoData>(builder: ((context, data, child) {
-    return ListView.separated(
-        itemBuilder: ((context, index) {
-          return ListTile(
-            leading: IconButton(
-                onPressed: () {
-                  data.updateTodo(data.todos[index]);
-                },
-                icon: Icon(data.todos[index].isCompleted
-                    ? Icons.circle
-                    : Icons.circle_outlined)),
-            title: Text(
-              data.todos[index].task,
-              style: TextStyle(
-                  decoration: data.todos[index].isCompleted
-                      ? TextDecoration.lineThrough
-                      : TextDecoration.none),
-            ),
-            trailing: IconButton(
-                onPressed: () {
-                  data.deleteTodo(data.todos[index]);
-                },
-                icon: const Icon(Icons.cancel_outlined)),
-          );
-        }),
-        separatorBuilder: ((context, index) {
-          return const Divider();
-        }),
-        itemCount: data.count);
-  }));
-}
-
-Widget placeholderList2() {
-  return Consumer<TodoData>(builder: ((context, data, child) {
-    return ListView.separated(
-        itemBuilder: ((context, index) {
-          return ListTile(
-            leading: IconButton(
-                onPressed: () {
-                  data.updateTodo(data.completedTodos[index]);
-                },
-                icon: Icon(data.completedTodos[index].isCompleted
-                    ? Icons.circle
-                    : Icons.circle_outlined)),
-            title: Text(
-              data.completedTodos[index].task,
-              style: TextStyle(
-                  decoration: data.completedTodos[index].isCompleted
-                      ? TextDecoration.lineThrough
-                      : TextDecoration.none),
-            ),
-            trailing: IconButton(
-                onPressed: () {
-                  data.deleteTodo(data.completedTodos[index]);
-                },
-                icon: const Icon(Icons.cancel_outlined)),
-          );
-        }),
-        separatorBuilder: ((context, index) {
-          return const Divider();
-        }),
-        itemCount: data.completedTodos.length);
-  }));
-}
-
-Widget placeholderList3() {
-  return Consumer<TodoData>(builder: ((context, data, child) {
-    return ListView.separated(
-        itemBuilder: ((context, index) {
-          return ListTile(
-            leading: IconButton(
-                onPressed: () {
-                  data.updateTodo(data.inCompletedTodos[index]);
-                },
-                icon: Icon(data.inCompletedTodos[index].isCompleted
-                    ? Icons.circle
-                    : Icons.circle_outlined)),
-            title: Text(
-              data.inCompletedTodos[index].task,
-              style: TextStyle(
-                  decoration: data.inCompletedTodos[index].isCompleted
-                      ? TextDecoration.lineThrough
-                      : TextDecoration.none),
-            ),
-            trailing: IconButton(
-                onPressed: () {
-                  data.deleteTodo(data.inCompletedTodos[index]);
-                },
-                icon: const Icon(Icons.cancel_outlined)),
-          );
-        }),
-        separatorBuilder: ((context, index) {
-          return const Divider();
-        }),
-        itemCount: data.inCompletedTodos.length);
-  }));
 }
