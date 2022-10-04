@@ -10,6 +10,7 @@ class AddTaskScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final formKey = GlobalKey<FormState>();
     return Provider(
       create: ((context) => TodoData()),
       child: Padding(
@@ -21,17 +22,32 @@ class AddTaskScreen extends StatelessWidget {
               style: TextStyle(
                   fontWeight: FontWeight.w700, color: kBgColor, fontSize: 24.0),
             ),
-            TextField(
-              autofocus: true,
-              controller: taskContoller,
-              decoration: const InputDecoration(hintText: 'Todo Title'),
+            Form(
+              key: formKey,
+              child: TextFormField(
+                autofocus: true,
+                controller: taskContoller,
+                textAlign: TextAlign.center,
+                decoration: const InputDecoration(hintText: 'Todo Title'),
+                validator: ((value) {
+                  if (value == null || value.isEmpty) {
+                    return 'you must enter the task title';
+                  }
+                  if (value.length < 3) {
+                    return 'task characters must be at least 3';
+                  }
+                  return null;
+                }),
+              ),
             ),
             MaterialButton(
               onPressed: () {
-                Provider.of<TodoData>(context, listen: false)
-                    .addNewTodo(taskContoller.text);
-                taskContoller.text = '';
-                Navigator.pop(context);
+                if (formKey.currentState!.validate()) {
+                  Provider.of<TodoData>(context, listen: false)
+                      .addNewTodo(taskContoller.text);
+                  taskContoller.text = '';
+                  Navigator.pop(context);
+                }
               },
               child: const Text(
                 'Add Todo',
