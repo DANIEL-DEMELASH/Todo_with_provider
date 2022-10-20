@@ -1,7 +1,6 @@
   <h3 align="center">Todo app</h3>
 
 
-<!-- ABOUT THE PROJECT -->
 ## About The Project
 
 A simple todo app that can manage your daily tasks.
@@ -9,21 +8,16 @@ A simple todo app that can manage your daily tasks.
 
 ### Built With
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-
 * Flutter
 * Provider State Management
 
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
 * Flutter V 3.3.3
 * Dart V 2.18.2
 
 ### Installation
-
-_Below is an example of how you can instruct your audience on installing and setting up your app. 
 
 1. Clone the repo
    ```sh
@@ -63,10 +57,7 @@ _Below is an example of how you can instruct your audience on installing and set
  </table>
  
 
-<!-- CONTRIBUTING -->
 ## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
 If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
 Don't forget to give the project a star! Thanks again!
@@ -78,7 +69,6 @@ Don't forget to give the project a star! Thanks again!
 5. Open a Pull Request
 
 
-<!-- CONTACT -->
 ## Contact
 
 DANIEL DEMELASH - [@DANIELDEMELASH5](https://twitter.com/DANIELDEMELASH5%) - danieldemelash5@gmail.com
@@ -86,7 +76,6 @@ DANIEL DEMELASH - [@DANIELDEMELASH5](https://twitter.com/DANIELDEMELASH5%) - dan
 Project Link: [https://github.com/DANIEL-DEMELASH/Todo](https://github.com/DANIEL-DEMELASH/Todo)
 
 
-<!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
 Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
