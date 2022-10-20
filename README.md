@@ -47,7 +47,7 @@ _Below is an example of how you can instruct your audience on installing and set
   </tr>
   <tr>
     <td><img src="screenshots/1.png" width=270 height=500></td>
-    <td><img src="screenshots2.png" width=270 height=500></td>
+    <td><img src="screenshots/2.png" width=270 height=500></td>
   </tr>
  </table>
  
