@@ -4,8 +4,6 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-## [![Product Name Screen Shot][product-screenshot]](https://example.com)
-
 A simple todo app that can manage your daily tasks.
 
 
@@ -39,6 +37,31 @@ _Below is an example of how you can instruct your audience on installing and set
    ```sh
    flutter run';
    ```
+   
+## Screenshots
+
+<table>
+  <tr>
+    <td>All Tasks Screen</td>
+     <td>Add Task Screen</td>
+  </tr>
+  <tr>
+    <td><img src="screenshots/1.png" width=270 height=500></td>
+    <td><img src="screenshots2.png" width=270 height=500></td>
+  </tr>
+ </table>
+ 
+ <table>
+  <tr>
+    <td>Completed Tasks Screen</td>
+     <td>Completed Tasks Screen</td>
+  </tr>
+  <tr>
+    <td><img src="screenshots/3.png" width=270 height=500></td>
+    <td><img src="screenshots/4.png" width=270 height=500></td>
+  </tr>
+ </table>
+ 
 
 <!-- CONTRIBUTING -->
 ## Contributing
